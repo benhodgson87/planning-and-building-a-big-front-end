@@ -1,0 +1,97 @@
+/*------------------------------------*\
+    #FLAG
+\*------------------------------------*/
+/**
+ * The flag object is a variation of Nicole Sullivan’s media object. It is used
+ * to lay out image-like and text-like content side-by-side.
+ */
+.flag {
+    display: table;
+    width: 100%;
+}
+
+    .flag__image,
+    .flag__body {
+        display: table-cell;
+        vertical-align: top;
+
+        .flag--middle & {
+            vertical-align: middle;
+        }
+
+        .flag--bottom & {
+            vertical-align: bottom;
+        }
+
+    }
+
+    .flag__image {
+        padding-right: $base--spacing-unit;
+
+        > img {
+            display: block;
+            max-width: none;
+        }
+
+        .flag--rev & {
+            padding-right: 0;
+            padding-left: $base--spacing-unit;
+        }
+
+    }
+
+    .flag__body {
+        width: 100%;
+    }
+
+
+/**
+ * Size variations.
+ */
+.flag--small {
+
+    > .flag__image {
+        padding-right: halve($base--spacing-unit);
+    }
+
+    &.flag--rev {
+
+        > .flag__image {
+            padding-right: 0;
+            padding-left: halve($base--spacing-unit);
+        }
+
+    }
+
+}
+
+
+.flag--large {
+
+    > .flag__image {
+        padding-right: double($base--spacing-unit);
+    }
+
+    &.flag--rev {
+
+        > .flag__image {
+            padding-right: 0;
+            padding-left: double($base--spacing-unit);
+        }
+
+    }
+
+}
+
+
+/**
+ * Gutterless flags. Extends `.flag`.
+ */
+.flag--gutterless {
+
+    > .flag__image {
+        padding-right: 0;
+        padding-left:  0;
+    }
+
+}

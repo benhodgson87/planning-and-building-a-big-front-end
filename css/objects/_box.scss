@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+/**
+ * Simple, boxed off content, e.g.:
+ * 
+   <div class="box">
+       I am boxed off.
+   </div>
+ * 
+ */
+.box {
+    @extend .cf;
+    display: block;
+}
+
+.box {
+    padding: $base--spacing-unit;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+
+/**
+ * Size variations.
+ */
+.box--small {
+    padding: halve($base--spacing-unit);
+}
+
+.box--large {
+    padding: double($base--spacing-unit);
+}
+
+
+/**
+ * Rounded corners.
+ */
+.box--soft {
+    border-radius: $brand--round;
+}
+
+
+/**
+ * Fully rounded box.
+ */
+.box--round {
+    border-radius: 100%;
+}

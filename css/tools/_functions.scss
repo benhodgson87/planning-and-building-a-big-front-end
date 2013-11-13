@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #FUNCTIONS
+\*------------------------------------*/
+/**
+ * Some nice functions we can use to make our lives easier. Feel free to add as
+ * many as you like!
+ */
+
+
+
+
+
+/**
+ * Strip the unit from a number (e.g. 18px --> 18).
+ */
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+
+/**
+ * Basic maths on numbers.
+ */
+@function halve($number) {
+    @return round($number / 2);
+}
+
+@function double($number) {
+    @return round($number * 2);
+}

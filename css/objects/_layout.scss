@@ -1,0 +1,141 @@
+/*------------------------------------*\
+    #LAYOUT
+\*------------------------------------*/
+/**
+ * Our layout system (note, not grid system) can be used to lay out all manner
+ * of things, from full page layouts to individual components.
+ */
+
+
+
+
+
+/**
+ * 1. Allow the layout system to be used on lists.
+ * 2. Remove any margins and paddings that might affect the layout system.
+ * 3. Apply a negative `margin-left` to negate the columns’ gutters.
+ */
+.layout {
+    list-style: none; /* [1] */
+    margin: 0; /* [2] */
+    padding: 0; /* [2] */
+    margin-left: -$base--spacing-unit; /* [3] */
+}
+
+
+    /**
+     * 1. Cause columns to stack side-by-side.
+     * 2. Space columns apart.
+     * 3. Align columns to the tops of each other.
+     * 4. Full-width unless told to behave otherwise.
+     */
+    .layout__item {
+        display: inline-block; /* [1] */
+        padding-left: $base--spacing-unit; /* [2] */
+        vertical-align: top; /* [3] */
+        width: 100%; /* [4] */
+    }
+
+
+/**
+ * Reversed layouts allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.layout`.
+ */
+.layout--rev {
+    direction: rtl;
+    text-align: left;
+
+    > .layout__item {
+        direction: ltr;
+        text-align: left;
+    }
+
+}
+
+
+/**
+ * Gutterless layouts have all the properties of regular layouts, minus any
+ * spacing. Extends `.layout`.
+ */
+.layout--gutterless {
+    margin-left: 0;
+
+    > .layout__item {
+        padding-left: 0;
+    }
+
+}
+
+
+/**
+ * Align the entire layout to the right. Extends `.layout`.
+ */
+.layout--right {
+    text-align: right;
+
+    > .layout__item {
+        text-align: left;
+    }
+
+}
+
+
+/**
+ * Centered layouts align layout items centrally without needing to use push or pull
+ * classes. Extends `.layout`.
+ */
+.layout--center {
+    text-align: center;
+
+    > .layout__item {
+        text-align: left;
+    }
+
+}
+
+
+/**
+ * Align layout cells vertically (`.layout--middle` or `.layout--bottom`). Extends
+ * `.layout`.
+ */
+.layout--middle {
+
+    > .layout__item {
+        vertical-align: middle;
+    }
+
+}
+
+.layout--bottom {
+
+    > .layout__item {
+        vertical-align: bottom;
+    }
+
+}
+
+
+/**
+ * Create layouts with narrower gutters. Extends `.layout`.
+ */
+.layout--small {
+    margin-left: -(halve($base--spacing-unit));
+
+    > .layout__item {
+        padding-left: halve($base--spacing-unit);
+    }
+
+}
+
+
+/**
+ * Create layouts with wider gutters. Extends `.layout`.
+ */
+.layout--large {
+    margin-left: -(double($base--spacing-unit));
+
+    > .layout__item {
+        padding-left: double($base--spacing-unit);
+    }
+
+}

@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
+/**
+ * Some nice mixins we can use to make our lives easier. Feel free to add as
+ * many as you like!
+ */
+
+
+
+
+
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ * 
+   `@include font-size(10px);`
+ * 
+ */
+@mixin font-size($font-size, $line-height: true) {
+    font-size: $font-size;
+    font-size: ($font-size / $base--font-size) * 1rem;
+
+    @if $line-height == true {
+        line-height: ceil($font-size / $base--line-height) * ($base--line-height / $font-size);
+    }
+}
+
+
+
+
+
+/**
+ * Create vendor-prefixed CSS in one go, e.g.
+ * 
+   `@include vendor(border-radius, 4px);`
+ * 
+ */
+@mixin vendor($property, $value) {
+    -webkit-#{$property}: $value;
+       -moz-#{$property}: $value;
+        -ms-#{$property}: $value;
+         -o-#{$property}: $value;
+            #{$property}: $value;
+}
+
+
+
+
+
+/**
+ * A simple top-to-bottom linear gradient with fallback color of our choice.
+ */
+@mixin linear-gradient($start-color, $stop-color, $fallback-color){
+    background-color: $fallback-color; /* Old browsers */
+    background-image: -moz-linear-gradient(top, $start-color 0%, $stop-color 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$stop-color)); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top, $start-color 0%,$stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(top, $start-color 0%,$stop-color 100%); /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(top, $start-color 0%,$stop-color 100%); /* IE10+ */
+    background-image: linear-gradient(to bottom, $start-color 0%,$stop-color 100%); /* W3C */
+}

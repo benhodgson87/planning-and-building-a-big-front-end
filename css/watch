@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This is a handy wrapper for running our Sass compilation command. From the
+# command line, simply `cd` to this directory and run `$ ./watch`.
+
+# No minification
+sass --watch style.scss:style.css --style expanded
+
+exit 0
