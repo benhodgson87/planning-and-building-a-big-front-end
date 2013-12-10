@@ -12,9 +12,6 @@
 .box {
     @extend .cf;
     display: block;
-}
-
-.box {
     padding: $base--spacing-unit;
 
     > :last-child {
