@@ -56,7 +56,7 @@ out, open up discussion and let’s have fun!
 6. `gui/` – Designed components and modules. These build on top of semantic
    HTML elements and are referred to mainly through class selectors.
 7. `trumps/` – Style trumps, helper classes and overrides. These need to
-   override any other styles and thus come last. It is now uncommon for these
+   override any other styles and thus come last. It is not uncommon for these
    styles to carry `!important`.
 
 ## Important numbers and values
